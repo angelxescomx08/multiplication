@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node ./src/app.logic.ts -b 7 -l 20 -s",
-    "dev:nodemon": "nodemon ./src/app.logic.ts -b 7 -l 20 -s",
+    "dev:nodemon": "nodemon -b 7 -l 20 -s",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js"
   },
