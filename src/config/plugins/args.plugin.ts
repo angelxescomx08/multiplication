@@ -1,4 +1,4 @@
-import yargs from "yargs";
+import yargs, { alias } from "yargs";
 import { hideBin } from "yargs/helpers";
 
 export const yarg = yargs(hideBin(process.argv))
@@ -19,6 +19,18 @@ export const yarg = yargs(hideBin(process.argv))
     type: "boolean",
     default: false,
     describe: "Show multiplication",
+  })
+  .option("n", {
+    alias: "name",
+    type: "string",
+    default: "multiplication-table",
+    describe: "Filename",
+  })
+  .option("d", {
+    alias: "destination",
+    type: "string",
+    default: "outputs",
+    describe: "File destination",
   })
   .check((argv, aliases) => {
     if (Number.isNaN(argv.b)) throw new Error("base must be a number");
