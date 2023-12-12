@@ -1,17 +1,21 @@
 import fs from "fs";
+import { yarg } from "./config/plugins/args.plugin";
 
 let result = "";
 
 result += "======================\n";
-result += "=====Tabla del 5======\n";
+result += `=====Tabla del ${yarg.b}======\n`;
 result += "======================\n\n";
 
-for (let i = 1; i <= 10; i++) {
-  result += `5 x ${i} = ${5 * i}\n`;
+for (let i = 1; i <= yarg.l; i++) {
+  result += `${yarg.b} x ${i} = ${yarg.b * i}\n`;
 }
 const pathOutputs = "outputs";
 if (!fs.existsSync(pathOutputs)) {
   fs.mkdirSync(pathOutputs, { recursive: true });
 }
-fs.writeFileSync("outputs/tabla-5.txt", result);
-console.log(result);
+fs.writeFileSync(`outputs/tabla-${yarg.b}.txt`, result);
+if (yarg.s) {
+  console.log(result);
+}
+console.log("File created");

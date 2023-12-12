@@ -20,4 +20,12 @@ export const yarg = yargs(hideBin(process.argv))
     default: false,
     describe: "Show multiplication",
   })
+  .check((argv, aliases) => {
+    if (Number.isNaN(argv.b)) throw new Error("base must be a number");
+    if (Number.isNaN(argv.l)) throw new Error("limit must be a number");
+
+    if (argv.l < 1) throw new Error("limit must be bigger than 0");
+
+    return true;
+  })
   .parseSync();
