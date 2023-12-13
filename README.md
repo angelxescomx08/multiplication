@@ -35,5 +35,17 @@ pnpm run start
 Para ejecutar los test del proyecto, ejecutar el siguiente comando:
 
 ```bash
+pnpm run test
+```
 
+Para ejecutar los test del proyecto en modo watch, ejecutar el siguiente comando:
+
+```bash
+pnpm run test:watch
+```
+
+Para ejecutar los test del proyecto en modo coverage, ejecutar el siguiente comando:
+
+```bash
+pnpm run test:coverage
 ```
